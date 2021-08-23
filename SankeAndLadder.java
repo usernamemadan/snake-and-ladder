@@ -8,6 +8,7 @@ public class SnakeAndLadder {
 		final int SNAKE =3;
 		
 		int position=0;
+		int countDice =0;
 		System.out.println("Welcome to Snake and Ladder Problem");		
 		
 		while(position != 100){
@@ -20,10 +21,12 @@ public class SnakeAndLadder {
 			else if(option == LADDER) {
 				System.out.println("Player moved forward by "+diceRoll);
 				position+=diceRoll;
+				countDice++;
 			}
 			else if(option == SNAKE) {
 				System.out.println("Player moved backward by "+diceRoll);
 				position-=diceRoll;
+				countDice++;
 			}
 			if(position<0)
 				position = 0;
@@ -31,5 +34,5 @@ public class SnakeAndLadder {
 				position-= diceRoll;
 			
 	}
-
+		System.out.println("no of time dice was played" + countDice);
 }
