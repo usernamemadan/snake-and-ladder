@@ -7,6 +7,7 @@ public class SnakeAndLadder {
 		System.out.println("Welcome to Snake and Ladder Problem");		
 		System.out.println("starting postion is " + position );
 		
+		int diceRoll = 1 + (int) Math.floor(Math.random() * 10) % 6;
 	}
 
 }
