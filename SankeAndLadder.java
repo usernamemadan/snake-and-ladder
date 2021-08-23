@@ -27,6 +27,9 @@ public class SnakeAndLadder {
 			}
 			if(position<0)
 				position = 0;
+			else if(position>100)
+				position-= diceRoll;
+			
 	}
 
 }
