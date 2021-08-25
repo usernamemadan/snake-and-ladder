@@ -1,38 +1,47 @@
 package com.snakeandladder;
 
-public class SnakeAndLadder {
+public class SnakeLadder {
 
 	public static void main(String[] args) {
-		final int NO_PLAY = 1;
-		final int LADDER = 2;
-		final int SNAKE =3;
 		
-		int position=0;
-		int countDice =0;
 		System.out.println("Welcome to Snake and Ladder Problem");		
 		
-		while(position != 100){
-			
-			int option = 1 + (int) Math.floor(Math.random() * 10) % 3;
+		Player player1 = new Player();
+		Player player2 = new Player();
 		
-			if(option == NO_PLAY){
-				System.out.println("No Play");
+		int stop = 0;
+		int status = 1;
+		
+		while(stop != 1)
+		{
+			switch(status) {
+				case 1:
+					System.out.println(" \n\n  Player1's turn: \n");
+					player1.play();
+					if( player1.position == 100) {
+						System.out.println("player1 won the match");
+						stop = 1;
+					}	
+					else if( player1.option != player1.LADDER )
+						status = 2;	
+					break;
+					
+				case 2:	
+					System.out.println(" \n\n Player2's turn: \n");
+					player2.play();
+					if( player2.position == 100) {
+						System.out.println("player2 won the match");
+						stop = 1;
+					}	
+					else if( player2.option != player2.LADDER )
+						status = 1;	
+					break;
+						
 			}
-			else if(option == LADDER) {
-				System.out.println("Player moved forward by "+diceRoll);
-				position+=diceRoll;
-				countDice++;
-			}
-			else if(option == SNAKE) {
-				System.out.println("Player moved backward by "+diceRoll);
-				position-=diceRoll;
-				countDice++;
-			}
-			if(position<0)
-				position = 0;
-			else if(position>100)
-				position-= diceRoll;
-			
+		}
+		System.out.println();
+		System.out.println("no of times dice was played  by player 1 = " + player1.countDice);
+		System.out.println("no of times dice was played  by player 2 = " + player2.countDice);
 	}
-		System.out.println("no of time dice was played" + countDice);
+
 }
