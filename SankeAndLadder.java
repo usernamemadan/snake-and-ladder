@@ -33,6 +33,8 @@ public class SnakeAndLadder {
 			else if(position>100)
 				position-= diceRoll;
 			
+			System.out.println("Player's position : " + position);
+			
 	}
 		System.out.println("no of time dice was played" + countDice);
 }
